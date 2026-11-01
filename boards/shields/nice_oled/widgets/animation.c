@@ -162,6 +162,10 @@ LV_IMG_DECLARE(vim);
 LV_IMG_DECLARE(vip_marcos);
 #define FIXED_IMAGE_VIP_MARCOS &vip_marcos
 
+#elif IS_ENABLED(CONFIG_NICE_OLED_WIDGET_STATIC_IMAGE_PERIPHERAL_DOG)
+LV_IMG_DECLARE(dog);
+#define FIXED_IMAGE_DOG &dog
+
 #else
 
 LV_IMG_DECLARE(vim);
@@ -200,6 +204,8 @@ void draw_animation(lv_obj_t *canvas, struct zmk_widget_screen *widget) {
     lv_img_set_src(art, FIXED_IMAGE_VIM);
 #elif IS_ENABLED(CONFIG_NICE_OLED_WIDGET_STATIC_IMAGE_PERIPHERAL_VIP_MARCOS)
     lv_img_set_src(art, FIXED_IMAGE_VIP_MARCOS);
+#elif IS_ENABLED(CONFIG_NICE_OLED_WIDGET_STATIC_IMAGE_PERIPHERAL_DOG)
+    lv_img_set_src(art, FIXED_IMAGE_DOG);
 #else
     int length = sizeof(crystal_imgs) / sizeof(crystal_imgs[0]);
     srand(k_uptime_get_32());
